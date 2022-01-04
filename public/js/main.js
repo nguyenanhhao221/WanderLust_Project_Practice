@@ -4,9 +4,8 @@ const appIdOpenWeather = '35b0e0ec659ad07c5b7f93e6cd25f6d2';
 const celsiusDegree = 'metric';
 
 //Api to Foursquare venues
-
-// const apiKey = process.env.API_KEY;
 const url = 'https://api.foursquare.com/v3/places/search?';
+const apiKeyFourSquare = 'fsq3a06tqE6OHneh2BmZpUqZpREVdKw1DsxEcMxgDGcbKdQ';
 
 //Element on page
 const $container = $('.container');
