@@ -34,6 +34,7 @@ const getWeather = async() => {
     }
     // Render the Weather into the Page
 const renderForecast = day => {
+    // @ts-ignore
     const weatherContent = createWeatherHTML(day);
     $destination.append(`<h2>${day.name}</h2>`)
     $weather.append(weatherContent);
@@ -45,7 +46,8 @@ const renderForecast = day => {
 
 const executeSearch = () => {
 
-    $container.css('visibility', 'visible');
+    $container.css('visibility', 'visible');;
+    $destination.empty();
     $weather.empty();
     getWeather().then(weather => renderForecast(weather));
     return false;
