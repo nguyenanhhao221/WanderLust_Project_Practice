@@ -7,7 +7,7 @@ const createWeatherHTML = currentDay => {
 };
 
 const createPlacesHTML = (resultArr, index) => {
-    return `<h2>${resultArr[index].name}</h2>
+    return `<h2 class = "placeTitle">${resultArr[index].name}</h2>
            <img class = "venueimage"src="${resultArr[index].categories[0].icon.prefix}bg_64${resultArr[index].categories[0].icon.suffix}" alt="icon" />
            <h3>Address:</h3>
            <p>${resultArr[index].location.address}</p> 

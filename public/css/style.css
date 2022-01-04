@@ -85,6 +85,11 @@ footer {
     width: 275px;
     padding: 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.venue p {
+    text-align: center;
 }
 
 .venueimage {
@@ -97,6 +102,10 @@ footer {
     font-weight: 600;
     text-align: center;
     padding-top: 5px;
+}
+
+.placeTitle {
+    min-height: 100px;
 }
 
 #destination {
