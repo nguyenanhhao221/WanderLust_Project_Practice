@@ -2,7 +2,8 @@
 const openWeatherUrl = 'api.openweathermap.org/data/2.5/weather?q=';
 const appIdOpenWeather = '35b0e0ec659ad07c5b7f93e6cd25f6d2';
 
-
+//Api to Foursquare
+const
 //Element on page
 const $container = $('.container');
 const $submit = $('#button');
