@@ -5,3 +5,4 @@ const createWeatherHTML = currentDay => {
             <h2>Condition: ${currentDay.weather[0].description}</h2>
             <img class = "weathericon" src="http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png" alt="">`;
 };
+
