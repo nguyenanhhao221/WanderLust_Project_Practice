@@ -5,7 +5,7 @@ const celsiusDegree = 'metric';
 
 //Api to Foursquare venues
 const url = 'https://api.foursquare.com/v3/places/search?';
-const apiKeyFourSquare = 'fsq3a06tqE6OHneh2BmZpUqZpREVdKw1DsxEcMxgDGcbKdQ';
+const apiKeyFourSquare = 'fsq3a06tqE6OHneh2BmZpUqZpREVdKw1DsxEcMxgDGcbKdQ=';
 
 //Element on page
 const $container = $('.container');
