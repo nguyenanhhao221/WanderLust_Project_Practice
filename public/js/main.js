@@ -13,6 +13,7 @@ const $submit = $('#button');
 const $input = $('#city');
 const $destination = $('#destination');
 const $weather = $('#weather1');
+const $venueDiv = [$('#venue1'), $('#venue2'), $('#venue3'), $('#venue4')];
 
 //Fetch Open Weather API
 const getWeather = async() => {
@@ -22,7 +23,6 @@ const getWeather = async() => {
             const response = await fetch(urlToFetch);
             if (response.ok) {
                 const jsonResponse = await response.json();
-                // console.log(jsonResponse);
                 return jsonResponse;
             }
             throw new Error('Request failed');
@@ -41,15 +41,50 @@ const renderForecast = day => {
 }
 
 
+//Fetch Foursquare API
+const getForecast = async() => {
+    const city = $input.val();
+    const limitResult = 5;
+    const urlToFetch = `${url}near=${city}&limit=${limitResult}`;
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            Authorization: apiKeyFourSquare
+        }
+    };
+    try {
+        const response = await fetch(urlToFetch, options);
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            // console.log(jsonResponse);
+            return jsonResponse;
+        }
+        throw new Error('Request failed!')
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+//Render Top Result of Foursquare on the page
+const renderPlaces = jsonResponse => {
+    let resultArr = jsonResponse.results;
+    $venueDiv.forEach(($venue, index) => {
+        let placesContent = createPlacesHTML(resultArr, index);
+        $venue.append(placesContent);
+    })
+}
+
 
 
 const executeSearch = () => {
-
     $container.css('visibility', 'visible');;
     $destination.empty();
     $weather.empty();
+    $venueDiv.forEach(place => place.empty());
     getWeather().then(weather => renderForecast(weather));
+    getForecast().then(place => renderPlaces(place));
     return false;
-
 }
 $submit.on('click', executeSearch);
